@@ -164,8 +164,9 @@ def save_episode(result, out_dir="data"):
     return path
 
 
-for style in [None, "direct"]:
-    for defense in [False, True]:
-        r = run_episode(TICKETS[0], style=style, defense=defense)
-        path = save_episode(r)
-        print(classify(r), "|", r["style"], "| defense:", defense, "->", path)
+if __name__ == "__main__":
+    for style in [None, "direct"]:
+        for defense in [False, True]:
+            r = run_episode(TICKETS[0], style=style, defense=defense)
+            path = save_episode(r)
+            print(classify(r), "|", r["style"], "| defense:", defense, "->", path)
